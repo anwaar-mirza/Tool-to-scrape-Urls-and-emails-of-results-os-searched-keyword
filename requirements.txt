@@ -4,3 +4,4 @@ numpy
 selenium
 fake_useragent
 requests
+webdriver-manager
