@@ -1,0 +1,17 @@
+streamlit
+pandas
+numpy
+selenium
+beautifulsoup4
+undetected-chromedriver
+geopy
+sys
+base64
+undetected_chromedriver
+fake_useragent
+time
+os
+threading
+requests
+pickle
+re
