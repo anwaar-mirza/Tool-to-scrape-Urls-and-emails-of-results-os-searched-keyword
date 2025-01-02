@@ -1,4 +1,4 @@
-import undetected_chromedriver as uc
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver. common.action_chains import ActionChains
@@ -27,7 +27,7 @@ class SEOFinding:
         fake_agent = UserAgent()
         chrome_options.add_argument(f"user-agent={fake_agent.chrome}")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-        self.driver = uc.Chrome(service=chrome_service, options=chrome_options)
+        self.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 3)
         self.action = ActionChains(self.driver)
