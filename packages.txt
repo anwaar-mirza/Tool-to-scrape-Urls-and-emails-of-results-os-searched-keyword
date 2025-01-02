@@ -1,6 +1,4 @@
-chromium
-chromium-driver
+microsoft-edge-stable
 xvfb
 libnss3
 libgconf-2-4
-libfontconfig1
