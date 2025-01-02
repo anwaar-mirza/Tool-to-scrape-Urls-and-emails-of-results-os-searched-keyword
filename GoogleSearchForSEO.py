@@ -27,7 +27,7 @@ class SEOFinding:
         fake_agent = UserAgent()
         chrome_options.add_argument(f"user-agent={fake_agent.chrome}")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-        self.driver = uc.Chrome(service=chrome_service, options=chrome_options)
+        self.driver = uc.Chrome(service=chrome_service, options=chrome_options, version_main=120)
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 3)
         self.action = ActionChains(self.driver)
