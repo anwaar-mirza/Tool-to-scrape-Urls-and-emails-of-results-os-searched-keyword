@@ -6,3 +6,4 @@ fake_useragent
 requests
 webdriver-manager
 undetected-chromedriver
+setuptools
