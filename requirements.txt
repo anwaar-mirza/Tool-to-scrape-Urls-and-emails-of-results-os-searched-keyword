@@ -6,3 +6,4 @@ beautifulsoup4
 undetected_chromedriver
 fake_useragent
 requests
+distutils
