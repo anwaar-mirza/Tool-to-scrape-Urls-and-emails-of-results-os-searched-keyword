@@ -1,4 +1,1 @@
-microsoft-edge-stable
-xvfb
-libnss3
-libgconf-2-4
+
