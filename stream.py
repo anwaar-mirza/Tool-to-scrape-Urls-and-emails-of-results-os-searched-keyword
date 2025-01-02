@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import base64
 import time
+import tempfile
 
 results = []
 def last_round(mp):
@@ -27,14 +28,17 @@ if choice == 'Single Keyword':
     keyword = st.text_input("Enter Your Keyword", placeholder="i.e. CBD Oil Capsules")
     file = st.text_input("Enter File Name", placeholder="i.e. data.csv")
     if file != "":
-        main_path = file
-        last_round(main_path)
-        with st.spinner("Processing... Please wait."):
-            extract_seo("Single Keyword", keyword, main_path)
-        time.sleep(5)
-        st.success("Scraping completed successfully!")
-    with open(main_path, "rb") as f:
-        st.download_button("Download CSV", f, main_path, mime="text/csv")         
+        with tempfile.NamedTemporaryFile(delete=False, mode="w", newline='', encoding='utf-8') as tmpfile:
+            main_path = tmpfile.name
+            last_round(main_path)
+            
+            # Scraping process
+            with st.spinner("Processing... Please wait."):
+                extract_seo("Single Keyword", keyword, main_path)
+            time.sleep(5)
+            st.success("Scraping completed successfully!")
+        with open(main_path, "rb") as f:
+            st.download_button("Download CSV", f, main_path, mime="text/csv")         
 elif choice == 'By File':
     file_path = st.file_uploader("Upload Your File", type=["csv"])
     if file_path is not None:
@@ -42,14 +46,17 @@ elif choice == 'By File':
         column = st.selectbox("Select Column", options=df.columns.tolist())
         file = st.text_input("Enter File Name", placeholder="i.e. data.csv")
         if file != "":
-            main_path = file
-            last_round(main_path)
-            with st.spinner("Processing... Please wait."):
-                extract_seo("Single Keyword", df[column], main_path)
-            time.sleep(5)
-            st.success("Scraping completed successfully!")    
-    with open(main_path, "rb") as f:
-        st.download_button("Download CSV", f, main_path, mime="text/csv")  
+            with tempfile.NamedTemporaryFile(delete=False, mode="w", newline='', encoding='utf-8') as tmpfile:
+                main_path = tmpfile.name
+                last_round(main_path)
+
+                # Scraping process
+                with st.spinner("Processing... Please wait."):
+                    extract_seo("Single Keyword", df[column], main_path)
+                time.sleep(5)
+                st.success("Scraping completed successfully!")  
+            with open(main_path, "rb") as f:
+                st.download_button("Download CSV", f, main_path, mime="text/csv")  
 
     
 
