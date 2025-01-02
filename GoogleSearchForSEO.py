@@ -25,7 +25,7 @@ class SEOFinding:
         chrome_options.add_argument("--disable-infobars")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
         fake_agent = UserAgent()
-        chrome_options.add_argument(f"user-agent={fake_agent.edge}")
+        chrome_options.add_argument(f"user-agent={fake_agent.chrome}")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
         self.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
         self.driver.maximize_window()
