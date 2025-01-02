@@ -3,6 +3,6 @@ pandas
 numpy
 selenium
 beautifulsoup4
-undetected-chromedriver==3.5.5
+undetected_chromedriver
 fake_useragent
 requests
