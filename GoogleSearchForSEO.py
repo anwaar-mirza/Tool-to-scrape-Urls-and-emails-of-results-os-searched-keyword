@@ -2,11 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver. common.action_chains import ActionChains
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 from mailFinder import get_email_address, initialize_mail_driver
 from threading import Thread
 from fake_useragent import UserAgent
@@ -17,7 +17,7 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        chrome_service = Service(EdgeChromiumDriverManager().install())
+        chrome_service = Service(ChromeDriverManager().install())
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
@@ -27,7 +27,7 @@ class SEOFinding:
         fake_agent = UserAgent()
         chrome_options.add_argument(f"user-agent={fake_agent.edge}")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-        self.driver = webdriver.Edge(service=chrome_service, options=chrome_options)
+        self.driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 3)
         self.action = ActionChains(self.driver)
