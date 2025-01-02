@@ -1,4 +1,4 @@
-from selenium import webdriver
+icfrom selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver. common.action_chains import ActionChains
@@ -27,7 +27,7 @@ class SEOFinding:
         fake_agent = UserAgent()
         chrome_options.add_argument(f"user-agent={fake_agent.edge}")
         chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-        self.driver = webdriver.Edge(options=chrome_options)
+        self.driver = webdriver.Edge(service=chrome_service, options=chrome_options)
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 3)
         self.action = ActionChains(self.driver)
