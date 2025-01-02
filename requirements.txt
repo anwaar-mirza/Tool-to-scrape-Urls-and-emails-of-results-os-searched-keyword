@@ -2,9 +2,5 @@ streamlit
 pandas
 numpy
 selenium
-beautifulsoup4
-undetected_chromedriver
 fake_useragent
 requests
-webdriver_manager
-GoogleSearchForSEO
