@@ -19,7 +19,7 @@ class EmailFinder:
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-infobars")
         options.add_argument("--disable-blink-features=AutomationControlled")
-        self.driver = webdriver.Edge(service=service, options=options, version_main=120)
+        self.driver = webdriver.Edge(service=service, options=options)
         self.driver.get("https://www.facebook.com")
         with open("face_cook.pkl", "rb") as file: 
                 cookies = pickle.load(file)
