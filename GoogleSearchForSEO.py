@@ -17,7 +17,7 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        chrome_service = Service(ChromeDriverManager(version="131.0.6778.205").install())
+        chrome_service = Service(ChromeDriverManager().install())
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
