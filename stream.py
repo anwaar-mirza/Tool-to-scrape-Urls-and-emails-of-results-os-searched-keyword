@@ -25,53 +25,32 @@ st.header("Drive SEO with precise URL, Email extraction", divider=True)
 choice = st.selectbox("How You Wanna Scrape Data", ['Single Keyword', "By File"])
 if choice == 'Single Keyword':
     keyword = st.text_input("Enter Your Keyword", placeholder="i.e. CBD Oil Capsules")
-    path = st.text_input("Enter Path to save", placeholder="i.e. C:\Your\Desire\Directory")
-    if path != "":
-        if os.path.exists(path):
-            file = st.text_input("Enter File Name", placeholder="i.e. data.csv")
-            if file != "":
-                if os.path.exists(os.path.join(path, file)):
-                    st.error("File already exists")
-                else:
-                    main_path = os.path.join(path, file)
-                    last_round(main_path)
-                    with st.spinner("Processing... Please wait."):
-                        extract_seo("Single Keyword", keyword, main_path)
-                    time.sleep(5)
-                    st.success("Scraping completed successfully!")
-                    
-            else:
-                pass
-        else:
-            st.error("Path does not exist")
-    else:
-        pass    
+    file = st.text_input("Enter File Name", placeholder="i.e. data.csv")
+    if file != "":
+        main_path = file
+        last_round(main_path)
+        with st.spinner("Processing... Please wait."):
+            extract_seo("Single Keyword", keyword, main_path)
+        time.sleep(5)
+        st.success("Scraping completed successfully!")
+    with open(main_path, "rb") as f:
+        st.download_button("Download CSV", f, main_path, mime="text/csv")         
 elif choice == 'By File':
     file_path = st.file_uploader("Upload Your File", type=["csv"])
     if file_path is not None:
         df = pd.read_csv(file_path)
         column = st.selectbox("Select Column", options=df.columns.tolist())
-        path = st.text_input("Enter Path to save", placeholder="i.e. C:\Your\Desire\Directory")
-        if path != "":
-            if os.path.exists(path):
-                file = st.text_input("Enter File Name", placeholder="i.e. data.csv")
-                if file != "":
-                    if os.path.exists(os.path.join(path, file)):
-                        st.error("File already exists")
-                    else:
-                        main_path = os.path.join(path, file)
-                        last_round(main_path)
-                        with st.spinner("Processing... Please wait."):
-                            extract_seo("Single Keyword", df[column], main_path)
-                        time.sleep(5)
-                        st.success("Scraping completed successfully!")
-                        
-                else:
-                    pass                
-            else:
-                st.error("Path does not exist")
-        else:
-            pass
+        file = st.text_input("Enter File Name", placeholder="i.e. data.csv")
+        if file != "":
+            main_path = file
+            last_round(main_path)
+            with st.spinner("Processing... Please wait."):
+                extract_seo("Single Keyword", df[column], main_path)
+            time.sleep(5)
+            st.success("Scraping completed successfully!")    
+    with open(main_path, "rb") as f:
+        st.download_button("Download CSV", f, main_path, mime="text/csv")  
+
     
 
 
