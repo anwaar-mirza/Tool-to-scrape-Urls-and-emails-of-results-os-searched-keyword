@@ -12,7 +12,7 @@ import re
 class EmailFinder:
     def __init__(self):
         options = Options()
-        service = Service("./chromedriver.exe")
+        service = Service("chromedriver.exe")
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
