@@ -13,7 +13,6 @@ from fake_useragent import UserAgent
 import pandas as pd
 import time
 import os
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 
 class SEOFinding:
