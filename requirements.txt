@@ -4,9 +4,9 @@ numpy==2.2.1
 fake_useragent==2.0.3
 requests==2.32.3
 setuptools==75.7.0
-selenium==4.27.1
 webdriver-manager==4.0.2
-undetected-chromedriver==3.5.5
+undetected-chromedriver==3.0.1
+selenium==4.0.0
 beautifulsoup4==4.12.3
 
 
