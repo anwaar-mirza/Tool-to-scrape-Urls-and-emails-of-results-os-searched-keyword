@@ -18,7 +18,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 class SEOFinding:
     def __init__(self):
-        chrome_service = Service(ChromeDriverManager().install())
+        chrome_service = Service("./chromedriver.exe")
         chrome_options = Options()
         chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
