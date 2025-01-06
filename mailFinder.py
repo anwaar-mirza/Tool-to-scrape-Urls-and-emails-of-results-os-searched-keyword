@@ -12,13 +12,13 @@ import re
 class EmailFinder:
     def __init__(self):
         options = uc.ChromeOptions()
-        service = Service(ChromeDriverManager().install())
+        # service = Service(ChromeDriverManager().install())
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-infobars")
         options.add_argument("--disable-blink-features=AutomationControlled")
-        self.driver = uc.Chrome(service=service, options=options)
+        self.driver = uc.Chrome(options=options)
         self.driver.get("https://www.facebook.com")
         with open("face_cook.pkl", "rb") as file: 
                 cookies = pickle.load(file)
