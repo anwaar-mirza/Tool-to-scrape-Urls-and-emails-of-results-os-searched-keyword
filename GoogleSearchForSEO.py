@@ -18,7 +18,6 @@ class SEOFinding:
     def __init__(self):
         chrome_service = Service(ChromeDriverManager().install())
         options = uc.ChromeOptions()
-        options.binary_location = "./chromedriver"
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
@@ -27,7 +26,7 @@ class SEOFinding:
         fake_agent = UserAgent()
         options.add_argument(f"user-agent={fake_agent.chrome}")
         options.add_argument("--disable-blink-features=AutomationControlled")
-        self.driver = uc.Chrome(service=chrome_service, options=options, executable_path="./chromedriver")
+        self.driver = uc.Chrome(service=chrome_service, options=options)
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 3)
         self.action = ActionChains(self.driver)
