@@ -1,4 +1,4 @@
-import undetected_chromedriver.v2 as uc
+import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver. common.action_chains import ActionChains
@@ -17,7 +17,7 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        service = Service(uc.get_chrome_driver_path())
+        service = Service(ChromeDriverManager().install())
         options = Options()
         options.binary_location = "/usr/bin/chromium"
         options.add_argument("--headless")
