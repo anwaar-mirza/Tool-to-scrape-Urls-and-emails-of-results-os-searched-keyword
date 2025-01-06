@@ -17,8 +17,10 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        service = Service(ChromeDriverManager().install())
+        service = uc.ChromeService(executable_path=ChromeDriverManager().install())
         options = Options()
+        if not options.binary_location:
+            options.binary_location = ChromeDriverManager().install()
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
