@@ -24,6 +24,7 @@ class SEOFinding:
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-infobars")
         options.add_argument("--disable-blink-features=AutomationControlled")
+        options.binary_location = None
         fake_agent = UserAgent()
         options.add_argument(f"user-agent={fake_agent.chrome}")
         options.add_argument("--disable-blink-features=AutomationControlled")
