@@ -1,7 +1,6 @@
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from bs4 import BeautifulSoup
 import selenium.webdriver.support.expected_conditions as EC
@@ -11,7 +10,8 @@ import requests
 import re
 class EmailFinder:
     def __init__(self):
-        options = Options()
+        options = uc.ChromeOptions()
+        options.binary_location = "C:/Program Files/Google/Chrome/Application/chrome.exe"
         service = Service("chromedriver.exe")
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
