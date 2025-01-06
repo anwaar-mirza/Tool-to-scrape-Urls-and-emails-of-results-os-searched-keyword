@@ -7,6 +7,6 @@ setuptools
 webdriver-manager
 undetected-chromedriver
 selenium
-beautifulsoup4
+beautifulsoup
 
 
