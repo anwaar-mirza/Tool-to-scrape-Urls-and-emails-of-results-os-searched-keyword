@@ -1,4 +1,4 @@
-chromium=127.* 
-chromium-driver=127.*
+chromium
+chromium-driver
 xvfb
 libgbm1
