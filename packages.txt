@@ -1,14 +1,4 @@
-# Update system package list
-apt-get update -y
-
-# Install Chromium version 131
-apt-get install -y chromium=131.* 
-
-# Install corresponding Chromium driver version 131
-apt-get install -y chromium-driver=131.*
-
-# Install Xvfb (X Virtual Frame Buffer for headless operation)
-apt-get install -y xvfb
-
-# Install libgbm1 (used by Chromium for graphics)
-apt-get install -y libgbm1
+chromium=131.* 
+chromium-driver=131.*
+xvfb
+libgbm1
