@@ -17,7 +17,7 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        service = uc.ChromeService(executable_path=ChromeDriverManager().install())
+        service = Service(executable_path=ChromeDriverManager().install())
         options = Options()
         if not options.binary_location:
             options.binary_location = ChromeDriverManager().install()
