@@ -1,5 +1,4 @@
 import undetected_chromedriver as uc
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver. common.action_chains import ActionChains
@@ -18,7 +17,7 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        # service = Service(ChromeDriverManager().install())
+        service = Service(ChromeDriverManager().install())
         options = Options()
         fake_agent = UserAgent()
         options.binary_location = "/usr/bin/chromium"
