@@ -15,7 +15,7 @@ class EmailFinder:
         options = Options()
         if not options.binary_location:
             options.binary_location = ChromeDriverManager().install()
-        service = uc.ChromeService(executable_path=ChromeDriverManager().install())
+        service = Service(executable_path=ChromeDriverManager().install())
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
