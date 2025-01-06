@@ -1,4 +1,4 @@
-import undetected_chromedriver as uc
+import undetected_chromedriver.v2 as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver. common.action_chains import ActionChains
@@ -17,10 +17,9 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        service = Service(ChromeDriverManager().install())
+        service = Service(uc.get_chrome_driver_path())
         options = Options()
-        if not options.binary_location:
-            options.binary_location = '/usr/bin/chromium'
+        options.binary_location = "/usr/bin/chromium"
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
@@ -29,7 +28,7 @@ class SEOFinding:
         fake_agent = UserAgent()
         options.add_argument(f"user-agent={fake_agent.chrome}")
         options.add_argument("--disable-blink-features=AutomationControlled")
-        self.driver = uc.Chrome(service=service, options=options)
+        self.driver = uc.Chrome(service=service, options=options, browser_executable_path="/usr/bin/chromium")
         self.driver.maximize_window()
         self.wait = WebDriverWait(self.driver, 3)
         self.action = ActionChains(self.driver)
