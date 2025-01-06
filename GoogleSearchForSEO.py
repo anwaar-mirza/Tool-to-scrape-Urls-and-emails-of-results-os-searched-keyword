@@ -17,7 +17,7 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        service = Service(ChromeDriverManager().install())
+        service = Service(ChromeDriverManager(version="131.0.6778.205").install())
         options = Options()
         fake_agent = UserAgent()
         options.binary_location = "/usr/bin/chromium"
