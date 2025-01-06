@@ -20,7 +20,7 @@ class SEOFinding:
         service = Service(ChromeDriverManager().install())
         options = Options()
         if not options.binary_location:
-            options.binary_location = str(uc.find_chrome_executable())
+            options.binary_location = '/usr/bin/chromium'
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
