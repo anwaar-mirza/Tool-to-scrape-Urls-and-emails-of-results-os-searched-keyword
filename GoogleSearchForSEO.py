@@ -17,7 +17,7 @@ import os
 
 class SEOFinding:
     def __init__(self):
-        service = Service()
+        service = Service(ChromeDriverManager().install())
         options = Options()
         options.binary_location = "/usr/bin/chromium"
         options.add_argument("--headless")
