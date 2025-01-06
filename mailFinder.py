@@ -19,6 +19,7 @@ class EmailFinder:
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-infobars")
         options.add_argument("--disable-blink-features=AutomationControlled")
+        options.binary_location = None
         self.driver = uc.Chrome(service=service, options=options)
         self.driver.get("https://www.facebook.com")
         with open("face_cook.pkl", "rb") as file: 
