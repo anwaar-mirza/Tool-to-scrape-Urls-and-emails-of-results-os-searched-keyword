@@ -5,8 +5,8 @@ fake_useragent
 requests
 setuptools
 selenium==4.9.0
-webdriver-manager>=4.0.0
-undetected-chromedriver>=3.4.6
+webdriver-manager>=4.7.0
+undetected-chromedriver>=3.0.0
 beautifulsoup4>=4.12.0
 libnss3
 libatk-bridge2.0-0
