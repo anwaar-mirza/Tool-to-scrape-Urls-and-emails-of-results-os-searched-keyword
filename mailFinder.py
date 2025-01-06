@@ -12,7 +12,7 @@ class EmailFinder:
     def __init__(self):
         options = uc.ChromeOptions()
         options.binary_location = "C:/Program Files/Google/Chrome/Application/chrome.exe"
-        service = Service("./chromedriver.exe")
+        service = Service(ChromeDriverManager().install())
         options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_argument("--no-sandbox")
